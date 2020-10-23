@@ -26,9 +26,7 @@ def password_encrypt (unencrypted_message, key):
     :return (string) The encrypted message
     """
 
-    #Fill in your code here.
-    # If you can't get it working, you may want to put some temporary code here
-    # While working on other parts of the program
+
     pass
 
 def load_password_file(file_name):
@@ -91,8 +89,29 @@ def lookup_password(website):
     :param website (string) The website for the entry to lookup
     :return: Returns an unencrypted password.  Returns None if no entry is found
     """
-    #Fill in your code here
+    # Creating a loop that reads through the entries list
+    for entry in entries:
+        #found is initially set to false because we need to give it a default value
+        found = False
+        #if given website is found in entries, set found to True
+        if entry[0] = website:
+            found = True
+            break
+        #since passwords only exist in the list in encrypted format, we need to decrypt the password to display it
+        if found:
+            # have not completed the encryption
+            password = password_encrypt(entry[1], -encryption_key)
+        else:
+            password = None
+        # based on the logic of the ceasar cipher, we know it works by shifting the characters used in the unencrypted password by a certain number of positions in the alphabet
+         # By using the same logic to decrypt the password, we know to use the negative number of the amount of positions the characters in the original password were shifted
+
+        return password
+
+
     pass
+
+def delete_password(website)
 
 
 while True:
