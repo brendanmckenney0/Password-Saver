@@ -142,14 +142,14 @@ Step 2: If website exists in entries, delete it along with corresponding passwor
             # contrary to lookup_password function, we need more action after we have determined the given website exists
             while found = True:
                 del entries([website, password])
-        # if we have not found the given website and combo password in entries, set found to False and set and set an error message
+        # if we have not found the given website and combo password in entries, set found to False
         else:
             found = False
 
         return
 
 
-        
+
 while True:
     print(menu_text)
     choice = input()
