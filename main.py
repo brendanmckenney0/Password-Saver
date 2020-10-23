@@ -61,8 +61,12 @@ def add_entry(website, password):
     :param website (string) The website for the entry
     :param password (string) The unencrypted password for the entry
     """
-    #Fill in your code here
-    pass
+    # First define final result of password_encrypt function
+    finalencrypt = password_encrypt(password, encryption_key)
+    #Input website and encrypted password into lists, unencrypted passwords do not exist in plain text until unencrypted
+    entry = [website, finalencrypt]
+    #append the newly assigned entry variable to the entries lists
+    entries.append(entry)
 
 def lookup_password(website):
     """Lookup the password for a given website
