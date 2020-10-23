@@ -8,6 +8,7 @@ password_file_name = "samplePasswordFile.pickle"
 #The encryption key for the caesar cypher
 encryption_key = 16
 
+# We need to add additional menu options to accomodate extra credit functions
 menu_text = """
 What would you like to do:
 1. Open password file
@@ -16,6 +17,7 @@ What would you like to do:
 4. Save password file
 5. Print the encrypted password list (for testing)
 6. Quit program
+7. Delete Password
 Please enter a number (1-6)"""
 
 def password_encrypt (unencrypted_message, key):
@@ -118,9 +120,36 @@ def lookup_password(website):
 
 
 
-def delete_password(website)
+def delete_password(website):
+"""Deletes password from list
+
+Logic for function:
+
+Step 1: Use the given website to read through list of entries to find corresponding password
+Step 2: If website exists in entries, delete it along with corresponding password
 
 
+:param website (string) The website that corresponds with the password user wishes to delete
+:return: Confirmation of deletion"""
+
+    # we are going to use a similar for loop here as the lookup_password function uses because we need to read through the entries list
+    for entry in entries:
+        # setting default of found variable to make this function automatically assume we have not found what we're looking for
+        found = False
+        # if we find website in entries
+        if entry[0] = website:
+            found = True
+            # contrary to lookup_password function, we need more action after we have determined the given website exists
+            while found = True:
+                del entries([website, password])
+        # if we have not found the given website and combo password in entries, set found to False and set and set an error message
+        else:
+            found = False
+
+        return
+
+
+        
 while True:
     print(menu_text)
     choice = input()
@@ -156,3 +185,11 @@ while True:
 
     if(choice == '6'):  #quit our program
         sys.exit()
+
+    # need to call delete_password function here
+    if(choice == '7'):  # delete passwords
+        delete_password(website)
+        if found == True:
+            Print("Your password for this website has been deleted")
+        else:
+            Print("Sorry, that password couldnt be found. Please make sure this is an existing password or that the website name is spelled correctly.")
