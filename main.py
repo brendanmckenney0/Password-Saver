@@ -25,9 +25,17 @@ def password_encrypt (unencrypted_message, key):
     :param key (int) The offset to be used for the caesar cypher
     :return (string) The encrypted message
     """
+    result_string = ''
+    min_limit = 32
+    max_limit = 126
+    for character in unencrypted_message:
+        value = ord(character) - min_limit + key
+        value = value % (max_limit - min_limit + 1)
+        value = value + min_limit
+        result_string = result_string + chr(value)
+    return result_string
 
 
-    pass
 
 def load_password_file(file_name):
     """Loads a password file.  The file must be in the same directory as the .py file
@@ -99,7 +107,6 @@ def lookup_password(website):
             break
         #since passwords only exist in the list in encrypted format, we need to decrypt the password to display it
         if found:
-            # have not completed the encryption
             password = password_encrypt(entry[1], -encryption_key)
         else:
             password = None
@@ -109,7 +116,7 @@ def lookup_password(website):
         return password
 
 
-    pass
+
 
 def delete_password(website)
 
