@@ -44,7 +44,7 @@ def load_password_file(file_name):
 
     :param file_name (string) The file to load.  Must be a pickle file in the correct format
     """
-    entries, encryption_key = pickle.load(file_name, 'rb')
+    return pickle.load(file_name, 'rb')
 
 def save_password_file(file_name):
     """Saves a password file.  The file will be created if it doesn't exist.
@@ -104,7 +104,7 @@ def lookup_password(website):
         #found is initially set to false because we need to give it a default value
         found = False
         #if given website is found in entries, set found to True
-        if entry[0] = website:
+        if entry[0] == website:
             found = True
             break
         #since passwords only exist in the list in encrypted format, we need to decrypt the password to display it
@@ -137,7 +137,7 @@ Step 2: If website exists in entries, delete it along with corresponding passwor
         # setting default of found variable to make this function automatically assume we have not found what we're looking for
         found = False
         # if we find website in entries
-        if entry[0] = website:
+        if entry[0] == website:
             found = True
             # contrary to lookup_password function, we need more action after we have determined the given website exists
             while found = True:
@@ -155,7 +155,7 @@ while True:
     choice = input()
 
     if(choice == '1'): # Load the password list from a file
-        load_password_file(password_file_name)
+        entries, encryption_key = load_password_file(password_file_name)
 
     if(choice == '2'): # Lookup at password
         print("Which website do you want to lookup the password for?")
